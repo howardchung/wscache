@@ -1,6 +1,6 @@
 {
   "name": "wscache",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "localStorage/sessionStorage cache for JavaScript applications",
   "main": "index.js",
   "scripts": {
