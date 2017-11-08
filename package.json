@@ -1,0 +1,26 @@
+{
+  "name": "wscache",
+  "version": "1.0.0",
+  "description": "localStorage/sessionStorage cache for JavaScript applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Howard Chung",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howardchung/wscache.git"
+  },
+  "keywords": [
+    "javascript",
+    "cache",
+    "localstorage",
+    "sessionstorage",
+    "web"
+  ],
+  "bugs": {
+    "url": "https://github.com/howardchung/wscache/issues"
+  },
+  "homepage": "https://github.com/howardchung/wscache#readme"
+}
