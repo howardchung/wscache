@@ -1,7 +1,7 @@
 wscache
 ====
 
-A JavaScript cache utilizing web browser storage technologies (localStorage/sessionStorage)
+Web Storage Cache: A JavaScript cache utilizing web browser storage technologies (localStorage/sessionStorage)
 
 Features
 ====
