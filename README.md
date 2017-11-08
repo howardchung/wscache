@@ -12,10 +12,18 @@ Features
 
 Usage
 ====
+`npm install wscache`
+
+
+Example
+====
 ```
 import wscache from 'wscache';
 
-const cache = wscache({ storeName: 'sessionStorage', cleanupIntervalSeconds: 5 });
+const cache = wscache({ 
+  storeName: 'sessionStorage', // default sessionStorage, also works with localStorage
+  cleanupIntervalSeconds: 5 // default 30
+});
 
 // Set an item with expiry
 cache.setItem('key', 'value', 10);
@@ -27,6 +35,11 @@ cache.getItem('key'); // value
 setTimeout(() => {
   cache.getItem('key'); // null
 }, 15000);
+
+// Remove an item
+cache.setItem('key2', 'value2');
+cache.removeItem('key2');
+cache.getItem('key2'); // null;
 
 }
 ```

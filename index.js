@@ -1,4 +1,5 @@
 module.exports = function(options) {
+  options = options || {};
   var storeName = options.storeName || 'sessionStorage' || 'localStorage';
   var cleanupInterval = options.cleanupIntervalSeconds * 1000 || 30000;
   var store = window[storeName];
@@ -8,19 +9,26 @@ module.exports = function(options) {
   }
   
   function getItem(key) {
-    return store.getItem(key);
+    var item = store.getItem(key);
+    return item && item.value;
   }
   
   function setItem(key, value, expireSeconds) {
-    return store.setItem(key, { 
-      expire: expireSeconds ? new Date() + (expireSeconds * 1000) : null, 
+    return store.setItem(key, JSON.stringify({
+      expire: expireSeconds ? Number(new Date()) + (expireSeconds * 1000) : null, 
       value: value 
-    });
+    }));
+  }
+  
+  function removeItem(key) {
+    return store.removeItem(key);
   }
   
   function cleanup() {
+    var now = Number(new Date());
     Object.keys(store).forEach(function(key) {
-      if (store[key] && store[key].expire && new Date() > store[key].expire) {
+      var item = JSON.parse(store.getItem(key));
+      if (item && item.expire && now > item.expire) {
         store.removeItem(key);
       }
     });
@@ -32,6 +40,7 @@ module.exports = function(options) {
   return {
     getItem: getItem,
     setItem: setItem,
+    removeItem: removeItem,
     cleanup: cleanup
   };
 };
