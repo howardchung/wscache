@@ -10,6 +10,11 @@ Features
 * Configurable cleanup interval
 * Configurable storage (localStorage/sessionStorage)
 
+Use Cases
+====
+* Save data from remote APIs in the cache to avoid excessive network calls
+* Save some temporary user setting or data that you want to expire automatically after a while
+
 Usage
 ====
 `npm install wscache`
