@@ -22,7 +22,7 @@ Usage
 
 Example
 ====
-```
+```javascript
 import wscache from 'wscache';
 
 const cache = wscache({ 
